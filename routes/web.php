@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AlumnoController;
+use App\Models\Alumno;
+use App\Models\Materia;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('inicio');
 });
+
+
+Route::resource('alumno', AlumnoController::class);
+Route::resource('materia', MateriaController::class);
