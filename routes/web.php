@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\MateriaController;
 use App\Models\Alumno;
 use App\Models\Materia;
 use Illuminate\Support\Facades\Route;

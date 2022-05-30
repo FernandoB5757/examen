@@ -19,7 +19,7 @@ class CreateAlumnosTable extends Migration
             $table->string('nombre',100);
             $table->string('carrera',100);
             $table->integer('creditos');
-            $table->string('correo',100)->nullable();
+            $table->string('correo',100)->unique()->nullable();
             $table->timestamps();
         });
     }

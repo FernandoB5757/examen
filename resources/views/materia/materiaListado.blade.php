@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Estudiantes</title>
+        <title>Materias</title>
         @include('links')
     </head>
 </head>
@@ -22,10 +22,10 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-6">
-                        <h1>Alumnos</h1>
+                        <h1>Materias</h1>
                     </div>
                     <div class="col-6" style="text-align: right">
-                        <a href="{{ route('alumno.create') }}" class="btn btn-success">Crear</a>
+                        <a href="{{ route('materia.create') }}" class="btn btn-success">Crear</a>
                     </div>
                     <div class="col-12">
                         @if (\Session::has('destroy'))
@@ -54,23 +54,25 @@
                             <tr>
                                 <th width="5%" class="wd-15p border-bottom-0">#</th>
                                 <th width="20%" class="border-bottom-0">Nombre</th>
-                                <th width="20%" class="border-bottom-0">Codigo</th>
                                 <th width="20%" class="border-bottom-0">Creditos</th>
+                                <th width="20%" class="border-bottom-0">Profesor</th>
+                                <th width="20%" class="border-bottom-0">Turno</th>
                                 <th class="border-bottom-0">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($alumnos as $key => $alumno)
+                            @foreach ($materias as $key => $materia)
                                 <tr>
-                                    <td width="5%">{{ $alumno->id }}</td>
-                                    <td width="20%">{{ $alumno->nombre }}</td>
-                                    <td width="20%">{{ $alumno->codigo }}</td>
-                                    <td width="20%">{{ $alumno->creditos }}</td>
+                                    <td width="5%">{{ $materia->id }}</td>
+                                    <td width="20%">{{ $materia->nombre }}</td>
+                                    <td width="20%">{{ $materia->profesor }}</td>
+                                    <td width="20%">{{ $materia->creditos }}</td>
+                                    <td width="20%">{{ $materia->turno }}</td>
                                     <td width="10%" class="text-center">
-                                        <a href="{{ route('alumno.edit', $alumno) }}" class="btn btn-warning">
+                                        <a href="{{ route('materia.edit', $materia) }}" class="btn btn-warning">
                                             Editar
                                         </a>
-                                        <a href="{{ route('alumno.show', $alumno) }}" class="btn btn-info">
+                                        <a href="{{ route('materia.show', $materia) }}" class="btn btn-info">
                                             Mostrar
                                         </a>
                                     </td>

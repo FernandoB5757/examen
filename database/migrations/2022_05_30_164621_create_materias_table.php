@@ -19,7 +19,7 @@ class CreateMateriasTable extends Migration
             $table->string('nombre',100);
             $table->string('profesor',100);
             $table->string('turno',100);
-            $table->boolean('disponible',100);
+            $table->boolean('disponible');
             $table->timestamps();
         });
     }

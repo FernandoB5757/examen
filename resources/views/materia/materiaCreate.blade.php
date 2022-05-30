@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Alumno</title>
+    <title>Crear Materia</title>
     @include('links')
 
     <script type="text/javascript" src="{{ asset('js/alumnosValidar.js') }}"></script>
@@ -18,7 +18,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-6">
-                        <h1>Crear Alumno</h1>
+                        <h1>Crear Materia</h1>
                     </div>
                     <div class="col-12">
                         @if ($errors->any())
@@ -35,7 +35,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">Listado</h5>
-                <form action="{{ route('alumno.store') }}" id='formulario' method="POST" class="form-inline">
+                <form action="{{ route('materia.store') }}" id='formulario' method="POST" class="form-inline">
                     @csrf
                     <div class="row">
                         <div class="col-6">
@@ -44,14 +44,16 @@
                                 minlength="1" maxlength="100" value="{{ old('nombre') }}">
                         </div>
                         <div class="col-6">
-                            <label for="lblcodigo" class="form-label">Código</label>
-                            <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código"
-                                minlength="9" maxlength="9" value="{{ old('codigo') }}">
+                            <label for="lblprofe" class="form-label">Profesor</label>
+                            <input type="text" class="form-control" id="profesor" name="profesor"
+                                placeholder="Profesor" minlength="9" maxlength="9" value="{{ old('profesor') }}">
                         </div>
                         <div class="col-6">
-                            <label for="lblemail" class="form-label">Carrera</label>
-                            <input type="text" class="form-control" id="carrera" name="carrera" placeholder="Carrera"
-                                value="{{ old('carrera') }}">
+                            <label for="lblDisponible" class="form-label">Turno</label>
+                            <select name="turno" id="turno" class="form-select">
+                                <option value="Matutino">Matutino</option>
+                                <option value="Vespertino">Vespertino</option>
+                            </select>
                         </div>
                         <div class="col-6">
                             <label for="lblcreditos" class="form-label">Créditos</label>
@@ -59,17 +61,21 @@
                                 placeholder="Creditos" value="{{ old('creditos') }}">
                         </div>
                         <div class="col-6">
-                            <label for="lblcorreo" class="form-label">Correo</label>
-                            <input type="email" class="form-control" id="correo" name="correo"
-                                placeholder="name@ejemplo.com" maxlength="100" value="{{ old('correo') }}">
+                            <div class="form-check">
+                                <br>
+                                <input class="form-check-input" type="checkbox" value="" id="disponible"
+                                    name="disponible">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Disponible
+                                </label>
+                            </div>
                         </div>
                     </div>
-
-                </form>
             </div>
             <div class="card-footer" style="text-align: right">
-                <button class="btn btn-success" type="button" onclick="validar()">Crear</button>
+                <button class="btn btn-success" type="submit">Crear</button>
             </div>
+            </form>
         </div>
     </div>
     </div>
